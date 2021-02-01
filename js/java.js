@@ -42,7 +42,7 @@ function screenwidth()
 }
 function screenwidthdt()
 {
-    if (screen.width >= 699) 
+    if (screen.width >= 699)
     {
     var url= window.location.pathname;
     document.location = url.substring(url.lastIndexOf("/m_")+3);
