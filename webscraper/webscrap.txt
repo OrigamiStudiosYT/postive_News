@@ -1,1 +1,84 @@
-test text
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior: smooth;">
+
+<!--
+    ******************************************************************************
+    *                                                                            *
+    *   Module: head                                                             *
+    *                                                                            *
+    *   Description: Links the stylesheet, sets the page title, and defines meta *
+    *                data.                                                       *
+    *                                                                            *
+    *   Author:  Andrew L                                                        *
+    *                                                                            *
+    *   Date: 9/21/2020                                                           *
+    *                                                                            *
+    *   History: 8/5/2020 Creation                                               *
+    ******************************************************************************
+-->
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="Andrew L" />
+    <meta name="description" content="This website is to show what I can create and 
+    projects I have worked on" />
+    <meta name="keywords" content="Projects, Andrew, Coding, Resume" />
+    <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+    <title> Andrew's Projects</title>
+    <link rel="shortcut icon" href="logo.png" />
+    <script src="js/java.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<!--
+    ******************************************************************************
+    *                                                                            *
+    *   Module: body                                                             *
+    *                                                                            *
+    *   Description: The main part of the website                                *
+    *                                                                            *
+    *   Author:  Andrew L                                                        *
+    *                                                                            *
+    *  Date: 9/21/2020                                                            *
+    *                                                                            *
+    *   History: 8/5/2020 Creation                                               *
+    *                                                                            *
+    ******************************************************************************
+-->
+
+<body onload="copyRight()">
+    <div class="bodypop">
+        <div class="centerall">
+            <div class="dropdown margeintop">
+                <button class="dropbtn">Home</button>
+                <div class="dropdown-content">
+                    <a class="linksize" href="#">Avatar</a>
+                    <a class="linksize" href="Websites.html">Websites I have worked on </a>
+                    <a class="linksize" href="resume.html">Resume</a>
+                </div>
+            </div>
+            <h1 class="whitetext">
+                Welcome to the Home Page
+            </h1>
+            <img class="imgsizing" src="img/proMe_circle.png" />
+            <div class="widthdiv">
+                <h3>
+                    Welcome to my website future employer or someone just looking around. On this website I
+                    will have some of the projects that I have worked on, and some experiments that you can
+                    mess around with.
+                </h3>
+            </div>
+        </div>
+
+        <div style="height: 4vw;">
+        </div>
+
+        <footer>
+            <div class="centerall">
+                <div id="displayCopyRight"></div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
