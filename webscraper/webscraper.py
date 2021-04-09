@@ -13,4 +13,7 @@ except:
     print("Something has failed and this is not epic")
 finally:
     file.close()
+    session.close()
+    URL.close()
     print(html)
+    
