@@ -1,19 +1,36 @@
 from urllib.request import urlopen
 from requests_html import HTMLSession
-session = HTMLSession()
 
-URL = session.get('https://www.nytimes.com/section/technology')
-page = URL.html.render()
-try:
-    html_bytes = page.read()
-    html = html_bytes.decode("utf-8")
+session = HTMLSession()
+page = session.get('http://127.0.0.1:5500/')
+page.html.render()
+
+
+def opening():
     file = open("webscraper/webscrap.txt", "w")
-    file.write(html)
-except:
-    print("Something has failed and this is not epic")
-finally:
-    file.close()
-    session.close()
-    URL.close()
-    print(html)
+    return file
+
+
+def searching(file):
+    try:
+        html = page.html.search(
+            "My Years {} Assabet")[0]
+        file.write(html)
+    except:
+        print("Searching or opening the file has failed")
+    return html
     
+
+
+def closing(html, file):
+    try:
+        file.close()
+        session.close()
+        print(html)
+    except:
+        print("Closing or exiting the file has failed")
+
+
+file = opening()
+html = searching(file)
+closing(html, file)

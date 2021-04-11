@@ -29,4 +29,35 @@ a:visited
    text-align: center;
 }
 
+.starting
+{
+   font-size: 5vw;
+}
+
+.start2
+{
+   float: left; 
+   padding-left: 29%;
+}
+
+.start3
+{
+   clear: right; 
+   float: left;
+   padding-left: 5%;
+}
+
+.start4
+{
+   float: right; 
+   clear: right; 
+   padding-right: 24%;
+}
+
+.start5
+{
+   clear: left; 
+   padding-left: 23%;
+}
+
 /* ********************************    ID ITEMS   *********************************** */
