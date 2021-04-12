@@ -2,7 +2,7 @@ from urllib.request import urlopen
 from requests_html import HTMLSession
 
 session = HTMLSession()
-page = session.get('http://127.0.0.1:5500/')
+page = session.get('https://www.nytimes.com/section/technology')
 page.html.render()
 
 
@@ -13,13 +13,15 @@ def opening():
 
 def searching(file):
     try:
-        html = page.html.search(
-            "My Years {} Assabet")[0]
+        html = page.html.find(
+            ".css-xta2bx", first=True)
+        html = html.text
+        html = html.replace("Photo", " ")
+        html = html.replace("Credit", " ")
         file.write(html)
     except:
         print("Searching or opening the file has failed")
     return html
-    
 
 
 def closing(html, file):
