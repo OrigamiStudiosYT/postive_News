@@ -3,7 +3,7 @@ from requests_html import HTMLSession
 
 session = HTMLSession()
 page = session.get('https://www.nytimes.com/section/technology')
-page.html.render()
+page.html.render(timeout=20)
 
 
 def opening():
