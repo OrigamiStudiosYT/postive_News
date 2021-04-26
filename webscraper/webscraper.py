@@ -18,21 +18,24 @@ def searching(file):
         html = html.text
         html = html.replace("Photo", " ")
         html = html.replace("Credit", " ")
-        file.write(html)
+        file.write(html+"\n")
     except:
         print("Searching or opening the file has failed")
     return html
 
 
-def closing(html, file):
+def closing(file):
     try:
         file.close()
         session.close()
-        print(html)
     except:
         print("Closing or exiting the file has failed")
 
 
 file = opening()
-html = searching(file)
-closing(html, file)
+x = 0
+while x in range(0, 1):
+    html = searching(file)
+    print(html)
+    x = x+1
+closing(file)
