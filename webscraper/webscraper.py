@@ -17,7 +17,7 @@ def searching(file):
             ".css-xta2bx", first=True)
         html = html.text
         html = html.replace("Photo", " ")
-        html = html.replace("Credit", " ")
+        html = html.replace("Credit", "Photo credit: ")
         file.write(html+"\n")
     except:
         print("Searching or opening the file has failed")
@@ -34,7 +34,7 @@ def closing(file):
 
 file = opening()
 x = 0
-while x in range(0, 1):
+while x in range(0, 4):
     html = searching(file)
     print(html)
     x = x+1
