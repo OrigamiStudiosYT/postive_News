@@ -13,12 +13,13 @@ def opening():
 
 def searching(file):
     try:
-        html = page.html.find(
-            ".css-xta2bx")[range(1,3)]
-        html = html.text
-        html = html.replace("Photo", " ")
-        html = html.replace("Credit", "Photo credit: ")
-        file.write(html+"\n")
+        html = page.html.find(".css-xta2bx")
+        for allcontainers in html:
+            html = allcontainers.find("div", {"class": "css-gjijuv"})
+            html = allcontainers.text
+            html = allcontainers.replace("Photo", " ")
+            html = allcontainers.replace("Credit", "Photo credit: ")
+            file.write(html+"\n")
     except:
         print("Searching or opening the file has failed")
     return html
@@ -33,9 +34,6 @@ def closing(file):
 
 
 file = opening()
-x = 0
-while x in range(0, 4):
-    html = searching(file)
-    print(html)
-    x = x+1
+html = searching(file)
+print(html)
 closing(file)
