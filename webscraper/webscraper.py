@@ -7,7 +7,10 @@ page.html.render(timeout=20)
 
 
 def opening():
-    file = open("webscraper/webscrap.txt", "w")
+    try:
+        file = open("webscraper/webscrap.txt", "w")
+    except:
+        print("Opening the file has failed")
     return file
 
 
@@ -15,13 +18,13 @@ def searching(file):
     try:
         html = page.html.find(".css-xta2bx")
         for allcontainers in html:
-            html = allcontainers.find("div", {"class": "css-gjijuv"})
             html = allcontainers.text
-            html = allcontainers.replace("Photo", " ")
-            html = allcontainers.replace("Credit", "Photo credit: ")
+            html = html.replace("Photo", " ")
+            html = html.replace("Credit", "Photo credit: ")
+            html = html.replace("agoBy", "ago By")
             file.write(html+"\n")
     except:
-        print("Searching or opening the file has failed")
+        print("Searching the file has failed")
     return html
 
 
