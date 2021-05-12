@@ -6,20 +6,21 @@ def opening():
     return file
 
 
+def injecting():
+    for x in range(4):
+        htmla = reading(file)
+        print(htmla)
+
+
 def reading(file):
     lines = file.readlines()
+    htmla = []
     for line in lines:
         if line == " \n":
             print("Empty Line")
         else:
-            html = line.strip()
-    return html
-
-
-def injecting(html):
-    for x in range(4):
-        html = reading(file)
-        print("Something")
+            htmla.append(line.strip())
+    return htmla
 
 
 def closing(file):
@@ -30,6 +31,5 @@ def closing(file):
 
 
 file = opening()
-readed = injecting(html)
-print(html)
+readed = injecting()
 closing(file)
