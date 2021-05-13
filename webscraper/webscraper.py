@@ -16,13 +16,18 @@ def opening():
 
 def searching(file):
     try:
+        bol = False
         html = page.html.find(".css-xta2bx")
         for allcontainers in html:
             html = allcontainers.text
-            html = html.replace("Photo", " ")
+            html = html.replace("Photo", "")
             html = html.replace("Credit", "Photo credit: ")
             html = html.replace("agoBy", "ago By")
-            file.write(html+"\n")
+            if bol == False:
+                file.writelines(html[1:]+"\n")
+                bol = True
+            else:
+                file.writelines(html+"\n")
     except:
         print("Searching the file has failed")
     return html
@@ -38,5 +43,5 @@ def closing(file):
 
 file = opening()
 html = searching(file)
-print(html)
+#print(html)
 closing(file)

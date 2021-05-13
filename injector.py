@@ -1,6 +1,5 @@
 from bs4 import BeautifulSoup
-
-
+from bs4.element import Tag
 
 
 def opening():
@@ -11,38 +10,36 @@ def opening():
     return file
 
 
-def injecting():
-    for x in range(4):
-        htmla = reading(file)
-        print(htmla)
-
-
 def reading(file):
-    with open("index.html", encoding="utf-8", mode="r+") as fp:
-        soup = BeautifulSoup(fp, "html.parser")
-    #lines = file.readlines()
-    #htmla = []
-    pclassses1 = soup.find("p", class_="Text1")
-    pclassses2 = soup.find("p", class_="Text2")
-    pclassses3 = soup.find("p", class_="Text3")
-    pclassses4 = soup.find("p", class_="Text4")
+    f = open("index.html", "r")
+    line_offset = []
+    offset = 0
+    for line in f:
+        line_offset.append(offset)
+        offset += len(line)
+    f.seek(0)
+    lines_to_read = [1, 2, 3]
+    lines_to_read1 = [6, 7, 8]
+    lines_to_read2 = [12, 13, 14]
+    lines_to_read3 = [17, 18, 19]
+    f = open("index.html", "a")
+    for position, line in enumerate(file):
 
-    pclassses1 = pclassses1.replaceWith("<p class='Text1'> line2 </p>")
-    pclassses2 = pclassses2.replaceWith("<p class='Text2'> line2 </p>")
-    pclassses3 = pclassses3.replaceWith("<p class='Text3'> line3 </p>")
-    pclassses4 = pclassses4.replaceWith("<p class='Text4'> line4 </p>")
-
-    fp.write(str(pclassses1))
-    fp.write(str(pclassses2))
-    fp.write(str(pclassses3))
-    fp.write(str(pclassses4))
-
-    # for line in lines:
-    #    if line == " \n":
-    #        print("Empty Line")
-    #    else:
-    #        htmla.append(line.strip())
-    # return htmla
+        if position in lines_to_read:
+            f.seek(line_offset[71])
+            f.writelines(line)
+        elif position in lines_to_read1:
+            f.seek(line_offset[77])
+            f.writelines(line)
+        elif position in lines_to_read2:
+            f.seek(line_offset[83])
+            f.writelines(line)
+        elif position in lines_to_read3:
+            f.seek(line_offset[89])
+            f.writelines(line)
+        else:
+            print(None)
+    f.close()
 
 
 def closing(file):
@@ -54,5 +51,4 @@ def closing(file):
 
 file = opening()
 reading(file)
-#readed = injecting()
 closing(file)
