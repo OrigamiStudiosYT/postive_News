@@ -11,35 +11,55 @@ def opening():
 
 
 def reading(file):
-    f = open("index.html", "r")
-    line_offset = []
-    offset = 0
-    for line in f:
-        line_offset.append(offset)
-        offset += len(line)
-    f.seek(0)
-    lines_to_read = [1, 2, 3]
-    lines_to_read1 = [6, 7, 8]
-    lines_to_read2 = [12, 13, 14]
-    lines_to_read3 = [17, 18, 19]
-    f = open("index.html", "a")
-    for position, line in enumerate(file):
+    with open("template.html", "r") as f:
+        f = f.read()
+        lines_to_read = [1, 2, 3]
+        lines_to_read1 = [6, 7, 8]
+        lines_to_read2 = [12, 13, 14]
+        lines_to_read3 = [17, 18, 19]
+        test = []
+        test1 = []
+        test2 = []
+        test3 = []
+        for position, line in enumerate(file):
 
-        if position in lines_to_read:
-            f.seek(line_offset[71])
-            f.writelines(line)
-        elif position in lines_to_read1:
-            f.seek(line_offset[77])
-            f.writelines(line)
-        elif position in lines_to_read2:
-            f.seek(line_offset[83])
-            f.writelines(line)
-        elif position in lines_to_read3:
-            f.seek(line_offset[89])
-            f.writelines(line)
-        else:
-            print(None)
-    f.close()
+            if position in lines_to_read:
+                test.append(line)
+
+            elif position in lines_to_read1:
+                test1.append(line)
+
+            elif position in lines_to_read2:
+                test2.append(line)
+
+            elif position in lines_to_read3:
+                test3.append(line)
+            else:
+                print()
+        f = f.replace("test0", str(test))
+        f = f.replace("test1", str(test1))
+        f = f.replace("test2", str(test2))
+        f = f.replace("test3", str(test3))
+        f = f.replace("\\n", " ")
+        f = f.replace("[", " ")
+        f = f.replace("]", " ")
+        f = f.replace("'", " ")
+    with open("index.html", "w") as fl:
+        fl.write(f)
+    
+    with open("template_m.html", "r") as f:
+        f = f.read()
+       
+        f = f.replace("test0", str(test))
+        f = f.replace("test1", str(test1))
+        f = f.replace("test2", str(test2))
+        f = f.replace("test3", str(test3))
+        f = f.replace("\\n", " ")
+        f = f.replace("[", " ")
+        f = f.replace("]", " ")
+        f = f.replace("'", " ")
+    with open("m_index.html", "w") as fll:
+        fll.write(f)
 
 
 def closing(file):
