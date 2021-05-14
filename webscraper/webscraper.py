@@ -43,5 +43,5 @@ def closing(file):
 
 file = opening()
 html = searching(file)
-#print(html)
+# print(html)
 closing(file)

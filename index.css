@@ -15,6 +15,7 @@ a
 img
 {
    width: 20vw;
+   border-radius: 8px;
 }
 
 a:visited

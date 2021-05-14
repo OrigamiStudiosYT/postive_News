@@ -46,10 +46,10 @@ def reading(file):
         f = f.replace("'", " ")
     with open("index.html", "w") as fl:
         fl.write(f)
-    
+
     with open("template_m.html", "r") as f:
         f = f.read()
-       
+
         f = f.replace("test0", str(test))
         f = f.replace("test1", str(test1))
         f = f.replace("test2", str(test2))
