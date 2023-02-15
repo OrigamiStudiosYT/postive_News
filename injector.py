@@ -44,6 +44,8 @@ def reading(file):
         f = f.replace("[", " ")
         f = f.replace("]", " ")
         f = f.replace("'", " ")
+        f = f.replace(",", " ")
+        f = f.replace("�", "")
     with open("index.html", "w") as fl:
         fl.write(f)
 

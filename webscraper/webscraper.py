@@ -17,7 +17,7 @@ def opening():
 def searching(file):
     try:
         bol = False
-        html = page.html.find(".css-xta2bx")
+        html = page.html.find(".css-4svvz1")
         for allcontainers in html:
             html = allcontainers.text
             html = html.replace("Photo", "")
